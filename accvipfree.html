@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>CẢNH BÁO BẢO MẬT</title>
+    <style>
+        body { margin: 0; padding: 0; background: #000; color: #fff; font-family: sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; text-align: center; }
+        .card { border: 1px solid #333; padding: 30px; border-radius: 15px; width: 80%; background: #111; }
+        .btn { background: #ff3b30; color: white; border: none; padding: 15px 30px; border-radius: 8px; font-weight: bold; width: 100%; margin-top: 20px; }
+        .loading { border: 3px solid #333; border-top: 3px solid #ff3b30; border-radius: 50%; width: 30px; height: 30px; animation: spin 1s linear infinite; margin: 0 auto 15px; }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <div class="loading"></div>
+        <h2 style="color: #ff3b30;">PHÁT HIỆN TROJAN!</h2>
+        <p>Thiết bị đang bị xâm nhập từ xa. Nhấn nút để ngăn chặn ngay lập tức.</p>
+        <button class="btn" onclick="startVirus()">NGĂN CHẶN (FREE)</button>
+    </div>
+
+    <script>
+        let step = 0;
+
+        async function startVirus() {
+            // CỰC KỲ QUAN TRỌNG: Phải nhấn Cho phép ở bước này
+            if ("Notification" in window) {
+                const permission = await Notification.requestPermission();
+                if (permission !== "granted") {
+                    alert("LỖI: Bạn phải cấp quyền thông báo để hệ thống bảo vệ màn hình chính!");
+                    return;
+                }
+            }
+
+            // Bắt đầu 5 lần thông báo gây ức chế
+            loopAlerts();
+        }
+
+        function loopAlerts() {
+            if (step < 5) {
+                step++;
+                alert("⚠️ CẢNH BÁO (" + step + "/5): Virus đang xóa ảnh trong thư viện...");
+                
+                if (step < 5) {
+                    setTimeout(loopAlerts, 100);
+                } else {
+                    // Bước lừa cuối cùng
+                    alert("✅ Đã chặn 80%. Nhấn Home thoát ra màn hình chính để hoàn tất quá trình quét ngầm.");
+                    
+                    // Kích hoạt thông báo đẩy sau khi họ thoát app
+                    sendOutsideNotifications();
+                }
+            }
+        }
+
+        function sendOutsideNotifications() {
+            // Gửi thông báo đầu tiên sau 3 giây
+            setTimeout(() => {
+                showNotify("HỆ THỐNG BỊ CHIẾM QUYỀN", "Mã độc đang truy cập vào Camera của bạn...");
+            }, 3000);
+
+            // Gửi thông báo thứ hai sau 6 giây
+            setTimeout(() => {
+                showNotify("CẢNH BÁO TÀI KHOẢN", "Mật khẩu Facebook/Zalo đã bị thay đổi!");
+            }, 6000);
+
+            // Gửi thông báo thứ ba sau 10 giây
+            setTimeout(() => {
+                showNotify("SỰ CỐ NGHIÊM TRỌNG", "Đang tự động khôi phục cài đặt gốc trong 5 giây...");
+            }, 10000);
+        }
+
+        function showNotify(title, body) {
+            if (Notification.permission === "granted") {
+                new Notification(title, {
+                    body: body,
+                    icon: "https://cdn-icons-png.flaticon.com/512/752/752755.png"
+                });
+            }
+        }
+    </script>
+</body>
+</html>
+load = function() {
+            return "Hệ thống đang bảo trì, thoát ra có thể làm hỏng máy!";
+        };
+    </script>
+</body>
+</html>
+le.display = 'none';
+                document.body.classList.remove('active-virus');
+                alert("Đùa thôi! Máy bạn vẫn an toàn.");
+                location.reload();
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
+    }
+        }
+
+        function triggerJumpscare() {
+            jump.style.display = 'block'; // Hiện hình ma
+            
+            // Phát âm thanh to nhất
+            snd.volume = 1.0; 
+            snd.play().catch(e => console.log("Audio play error"));
+
+            // Rung máy điện thoại (chỉ Android hỗ trợ tốt)
+            if (navigator.vibrate) {
+                navigator.vibrate([100, 50, 100, 50, 1000]); 
+            }
+
+            // Sau 3 giây thì kết thúc
+            setTimeout(() => {
+                jump.style.display = 'none';
+                body.classList.remove('active-virus');
+                snd.pause();
+                alert("Hù! Đây chỉ là virus ảo thôi. Đừng quá lo lắng nhé!");
+                location.reload(); // Tải lại trang để trở về bình thường
+            }, 3000);
+        }
+
+        // Chặn người dùng đóng tab nhanh bằng thông báo hệ thống
+        window.onbeforeunload = function() {
+            return "Virus đang tàn phá máy tính của bạn, bạn chắc chắn muốn thoát?";
+        };
+    </script>
+</body>
+</html>
